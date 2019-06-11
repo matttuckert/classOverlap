@@ -14,54 +14,28 @@
   <h1>
     {{ title }}!
   </h1>
-  <img width=150 alt="Struttin-Wolf" src="https://static.gopack.com/custompages/Brand%20Guide/Struttin-Wolf-Web.jpg">
-  <!--<img width=150 alt="Struttin-Wolf" src="../../img/Struttin-Wolf.jpg">-->
+  <img width=150 alt="Struttin-Wolf" src="assets/img/Struttin-Wolf.jpg">
 </div>
 <h2>Enter Plans: </h2>
 <div class="row mt-4">
   <div class="col-2">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Plan 1</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>Plan A</button>
-        <button ngbDropdownItem>Plan B</button>
-        <button ngbDropdownItem>Plan C</button>
-      </div>
-    </div>
+    <app-plan-list></app-plan-list>
   </div>
   <div class="col-2">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Plan 2</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>Plan A</button>
-        <button ngbDropdownItem>Plan B</button>
-        <button ngbDropdownItem>Plan C</button>
-      </div>
-    </div>
+    <app-plan-list></app-plan-list>
   </div>
   <div class="col-2">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Plan 3</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>Plan A</button>
-        <button ngbDropdownItem>Plan B</button>
-        <button ngbDropdownItem>Plan C</button>
-      </div>
-    </div>
+    <app-plan-list></app-plan-list>
   </div>
-  <div class="col-3">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Plan 4</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>Plan A</button>
-        <button ngbDropdownItem>Plan B</button>
-        <button ngbDropdownItem>Plan C</button>
-      </div>
-    </div>
+  <div class="col-2">
+      <app-plan-list></app-plan-list>
   </div>
   <div class="col">
-    <button type="button" class="btn btn-outline-success">Run</button>
-</div>
+      <button type="button" class="btn btn-outline-warning my-btn">Clear</button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-success my-btn">Run</button>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IPlan } from './plan'
 
 @Component({
   selector: 'app-plan-list',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanListComponent implements OnInit {
 
-  constructor() { }
+  private url: string = "assets/mock-data/plans.json";
+  public plans = [];
+  public selectedPlan = null;
 
-  ngOnInit() {
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() { 
+    this.getPlans();
+  }
+
+  getPlans() {
+    return this.http.get<IPlan[]>(this.url)
+      .subscribe(data => this.plans = data);
+  }
+
+  selectPlan(plan) {
+    this.selectedPlan = plan;
   }
 
 }

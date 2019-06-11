@@ -1,3 +1,8 @@
-<p>
-  plan-list works!
-</p>
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Plan</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <div *ngFor="let plan of plans">
+        <button (click)="selectPlan(plan)" ngbDropdownItem>{{plan.shortName}}</button>
+    </div>
+  </div>
+</div>

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ClassOverlap';
+
+  clear() {
+    // clear selected plans
+  }
+
+  run() {
+    // run selected plans
+  }
+
 }
