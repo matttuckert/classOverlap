@@ -25,7 +25,15 @@ export class PlanListComponent implements OnInit {
   }
 
   selectPlan(plan) {
-    this.selectedPlan = plan;
+    this.selectedPlan = plan.shortName;
+  }
+
+  clear() {
+    this.selectedPlan = null;
+  }
+
+  getSelectedPlan() {
+    return this.selectedPlan();
   }
 
 }

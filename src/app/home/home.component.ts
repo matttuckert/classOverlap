@@ -1,17 +1,20 @@
-import { Component, ViewChildren, QueryList } from '@angular/core';
-import { PlanListComponent } from './plan-list/plan-list.component';
-import { IPlan } from './plan-list/plan';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { PlanListComponent } from '../plan-list/plan-list.component';
+import { IPlan } from '../plan-list/plan';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent {
+export class HomeComponent implements OnInit {
+
   title = 'ClassOverlap';
   selectedPlans: IPlan[];
   hidden = true;
   @ViewChildren(PlanListComponent) comps: QueryList<PlanListComponent>
+
+  constructor() { }
 
   clear() {
     this.comps.forEach(comp => comp.clear())
@@ -33,8 +36,12 @@ export class AppComponent {
     return this.selectedPlans;
   }
 
-  setHidden(bool: boolean) {
+  setHidden(bool) {
     this.hidden = bool;
+  }
+
+  ngOnInit() {
+    
   }
 
 }
