@@ -1,10 +1,10 @@
+<!-- contains the title, wolfpack image, plan-list components, run and clear buttons, and the overlap component -->
 <div style="text-align:center">
   <h1>
     {{ title }}!
   </h1>
   <img width=150 alt="Struttin-Wolf" src="assets/img/Struttin-Wolf.jpg">
 </div>
-<h2>Enter Plans: </h2>
 <div class="row mt-4">
   <div class="col-2">
     <app-plan-list></app-plan-list>
@@ -25,5 +25,5 @@
     <button type="button" class="btn btn-outline-success my-btn" (click)="run()">Run</button>
   </div>
 </div>
+<!-- <app-overlaps *ngIf="!hidden"></app-overlaps> -->
 <app-overlaps [hidden]="hidden"></app-overlaps>
-  

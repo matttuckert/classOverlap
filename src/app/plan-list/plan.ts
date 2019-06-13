@@ -1,5 +1,9 @@
+// interface defining plan
 export interface IPlan {
+    // short name
     shortName: string
-    longname: string
+    // long name
+    longName: string
+    // course list
     courseList: string[]
 }

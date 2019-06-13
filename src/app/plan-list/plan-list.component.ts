@@ -1,3 +1,4 @@
+// component responsible for getting plans from database and keeping track of a selected plan
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IPlan } from './plan'
@@ -9,31 +10,43 @@ import { IPlan } from './plan'
 })
 export class PlanListComponent implements OnInit {
 
+  // url to database, currently points to mock data
   private url: string = "assets/mock-data/plans.json";
-  public plans = [];
-  public selectedPlan = null;
+  // list of all plans
+  private plans: IPlan[] = [];
+  // selected plan, initially null
+  private selectedPlan: IPlan = null;
 
+  // constructs a plan list component
+  // intializes the HttpClient object
   constructor(private http: HttpClient) { }
 
+  // initialization logic
+  // gets plans
   ngOnInit() { 
     this.getPlans();
   }
 
-  getPlans() {
-    return this.http.get<IPlan[]>(this.url)
+  // gets the plans from database with http get request and stores the data in plans variable
+  getPlans(): void {
+    this.http.get<IPlan[]>(this.url)
       .subscribe(data => this.plans = data);
   }
 
-  selectPlan(plan) {
-    this.selectedPlan = plan.shortName;
+  // sets the selected plan
+  // this method is called based off user input
+  selectPlan(plan: IPlan): void {
+    this.selectedPlan = plan;
   }
 
-  clear() {
+  // clears the selected plan
+  clear():void  {
     this.selectedPlan = null;
   }
 
-  getSelectedPlan() {
-    return this.selectedPlan();
+  // gets the selected plan
+  getSelectedPlan(): IPlan {
+    return this.selectedPlan;
   }
 
 }

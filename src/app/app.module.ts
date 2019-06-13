@@ -1,3 +1,4 @@
+// top level module - no sub-modules, this module contains all components
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
+  // component declarations
   declarations: [
     AppComponent,
     PlanListComponent,
@@ -19,6 +21,7 @@ import { HomeComponent } from './home/home.component';
     AboutComponent,
     HomeComponent,
   ],
+  // modules to import
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +29,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpClientModule
   ],
+  // no services
   providers: [],
   bootstrap: [AppComponent]
 })

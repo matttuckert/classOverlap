@@ -1,3 +1,4 @@
+// component responsible for displaying information about the application
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  // constructs the component, no values to initialize
   constructor() { }
 
-  ngOnInit() {
-  }
+  // initialization logic, nothing to do
+  ngOnInit() { }
 
 }
