@@ -8,6 +8,7 @@ import { IPlan } from '../plan-list/plan';
   styleUrls: ['./overlaps.component.css']
 })
 export class OverlapsComponent implements OnInit {
+  overlaps: any
 
   // constructs the overlaps component, no values to initialize
   constructor() { }
@@ -18,6 +19,10 @@ export class OverlapsComponent implements OnInit {
   // gets overlapping courses of the plan list passed as a parameter
   getOverlaps(plans: IPlan[]) {
     // not yet implemented
+
+    ////////////////////////
+    this.overlaps = plans;
+    ///////////////////////
   }
 
 }

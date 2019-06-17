@@ -1,7 +1,7 @@
 <!-- contains plan list dropdown, and displays selectedPlan unless it is null -->
-<div ngbDropdown class="d-inline-block">
-  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Plan</button>
-  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+<div ngbDropdown placement="bottom-left" class="d-inline-block">
+  <button class="btn btn-outline-danger" id="dropdownBasic1" ngbDropdownToggle>Select Plan</button>
+  <div ngbDropdownMenu class="dropdown-menu mb-5" aria-labelledby="dropdownBasic1">
     <div *ngFor="let plan of plans">
         <button (click)="selectPlan(plan)" ngbDropdownItem>{{plan.shortName}}</button>
     </div>

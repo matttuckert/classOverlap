@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  message: string = "ABOUT THIS APP";
+
   // constructs the component, no values to initialize
   constructor() { }
 

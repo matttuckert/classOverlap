@@ -13,9 +13,9 @@ export class PlanListComponent implements OnInit {
   // url to database, currently points to mock data
   private url: string = "assets/mock-data/plans.json";
   // list of all plans
-  private plans: IPlan[] = [];
+  plans: IPlan[] = [];
   // selected plan, initially null
-  private selectedPlan: IPlan = null;
+  selectedPlan: IPlan = null;
 
   // constructs a plan list component
   // intializes the HttpClient object

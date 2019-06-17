@@ -12,9 +12,9 @@ import { OverlapsComponent } from '../overlaps/overlaps.component';
 export class HomeComponent implements OnInit {
 
   // title to display
-  private title: string = 'ClassOverlap';
+  title: string = 'Class Overlap';
   // boolean to decide whether to display overlaps component, overlaps component is initially hidden
-  private hidden: boolean = true;
+  hidden: boolean = true;
   // keeps track of child plan list components
   @ViewChildren(PlanListComponent) private planListComps: QueryList<PlanListComponent>;
   // keeps track of child overlaps component
