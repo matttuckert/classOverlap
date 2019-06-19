@@ -1,4 +1,2 @@
-/* size specifications for button */
-.my-btn {
-    width:100px;
-}
+.top-buffer { margin-top:50px; }
+.left-buffer { margin-left:10px; }

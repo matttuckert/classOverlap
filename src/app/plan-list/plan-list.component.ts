@@ -33,11 +33,11 @@ export class PlanListComponent implements OnInit {
       .subscribe(data => this.plans = data);
   }
 
-  // sets the selected plan
-  // this method is called based off user input
-  selectPlan(plan: IPlan): void {
-    this.selectedPlan = plan;
-  }
+  // // sets the selected plan
+  // // this method is called based off user input
+  // selectPlan(plan: IPlan): void {
+  //   this.selectedPlan = plan;
+  // }
 
   // clears the selected plan
   clear():void  {

@@ -1,4 +1,6 @@
 <!-- contains plan list dropdown, and displays selectedPlan unless it is null -->
+
+<!--
 <div ngbDropdown placement="bottom-left" class="d-inline-block">
   <button class="btn btn-outline-danger" id="dropdownBasic1" ngbDropdownToggle>Select Plan</button>
   <div ngbDropdownMenu class="dropdown-menu mb-5" aria-labelledby="dropdownBasic1">
@@ -8,3 +10,10 @@
   </div>
 </div>
 <p *ngIf="selectedPlan">{{selectedPlan.longName}}</p>
+-->
+
+<!-- <select class="selectpicker" [(ngModel)]="selectedPlan" data-dropup-auto="false" data-style="btn-outline-danger" data-width="150px"> -->
+<select class="custom-select" style="width: 150px;" [(ngModel)]="selectedPlan">
+  <option disabled [selected]="!selectedPlan" [ngValue]="null">Select Plan</option>
+  <option *ngFor="let plan of plans" [ngValue]="plan">{{ plan.shortName }}</option>
+</select>

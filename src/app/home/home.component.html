@@ -1,29 +1,22 @@
-<!-- contains the title, wolfpack image, plan-list components, run and clear buttons, and the overlap component -->
-<div style="text-align:center">
-  <h1>
-    {{ title }}!
-  </h1>
-  <img width=150 alt="Struttin-Wolf" src="assets/img/Struttin-Wolf.jpg">
-</div>
-<div class="row pt-4">
-  <div class="col">
-    <app-plan-list></app-plan-list>
-  </div>
-  <div class="col">
-    <app-plan-list></app-plan-list>
-  </div>
-  <div class="col">
-    <app-plan-list></app-plan-list>
-  </div>
-  <div class="col">
-      <app-plan-list></app-plan-list>
-  </div>
-  <div class="col">
-    <button type="button" class="btn btn-outline-warning my-btn" (click)="clear()">Clear</button>
-  </div>
-  <div class="col">
-    <button type="button" class="btn btn-outline-success my-btn" (click)="run()">Run</button>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="row top-buffer">
+        <app-plan-list></app-plan-list>
+        <app-plan-list></app-plan-list>
+        <app-plan-list></app-plan-list>
+        <app-plan-list></app-plan-list>
+        <button type="button" class="btn btn-outline-warning custom-width left-buffer" (click)="clear()"><strong>Clear</strong></button>
+        <button type="button" class="btn btn-outline-success custom-width" (click)="run()"><strong>Run</strong></button>
+      </div>
+      <div class="row top-buffer">
+        <!-- <app-overlaps *ngIf="hidden"></app-overlaps> -->
+        <app-overlaps [hidden]="hidden"></app-overlaps>
+        <img [hidden]="!hidden" width=300 alt="left" src="assets/img/nothing-to-see-here.jpg">
+      </div>
+    </div>
+    <div class="col-4">
+      <img width=300 alt="Struttin-Wolf" src="assets/img/Struttin-Wolf.jpg">
+    </div>
   </div>
 </div>
-<!-- <app-overlaps *ngIf="!hidden"></app-overlaps> -->
-<app-overlaps [hidden]="hidden"></app-overlaps>

@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit {
   // boolean to decide whether to display overlaps component, overlaps component is initially hidden
   hidden: boolean = true;
   // keeps track of child plan list components
-  @ViewChildren(PlanListComponent) private planListComps: QueryList<PlanListComponent>;
+  @ViewChildren(PlanListComponent) planListComps: QueryList<PlanListComponent>;
   // keeps track of child overlaps component
-  @ViewChild(OverlapsComponent) private overlapComp: OverlapsComponent;
+  @ViewChild(OverlapsComponent) overlapComp: OverlapsComponent;
 
   // constructs the home component, no values to initialize
   constructor() { }
