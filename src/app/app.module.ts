@@ -2,9 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatSelectModule, MatGridListModule, MatToolbarModule, MatListModule, MatCardModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { PlanListComponent } from './plan-list/plan-list.component';
 import { OverlapsComponent } from './overlaps/overlaps.component';
@@ -25,7 +26,14 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule
   ],
   // no services
   providers: [],

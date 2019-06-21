@@ -1,7 +1,7 @@
 // component responsible for getting plans from database and keeping track of a selected plan
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IPlan } from './plan'
+import { IPlan } from '../../model/plan'
 
 @Component({
   selector: 'app-plan-list',

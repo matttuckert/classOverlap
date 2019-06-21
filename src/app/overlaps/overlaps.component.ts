@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlan } from '../plan-list/plan';
+import { IPlan } from '../../model/plan';
 
 // component responsible for getting and displaying the overlapping courses
 @Component({
@@ -19,7 +19,7 @@ export class OverlapsComponent implements OnInit {
   // gets overlapping courses of the plan list passed as a parameter
   getOverlaps(plans: IPlan[]) {
     // not yet implemented
-
+    
     ////////////////////////
     this.overlaps = plans;
     ///////////////////////

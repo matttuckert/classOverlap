@@ -1,7 +1,7 @@
 // main component of application, responsible for displaying child components and transferring data between child components
 import { Component, OnInit, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { PlanListComponent } from '../plan-list/plan-list.component';
-import { IPlan } from '../plan-list/plan';
+import { IPlan } from '../../model/plan';
 import { OverlapsComponent } from '../overlaps/overlaps.component';
 
 @Component({
@@ -10,6 +10,7 @@ import { OverlapsComponent } from '../overlaps/overlaps.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
 
   // title to display
   title: string = 'Class Overlap';
