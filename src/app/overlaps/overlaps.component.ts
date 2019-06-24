@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlan } from '../../model/plan';
+import { IPlan, Course } from '../../model/plan';
 
 // component responsible for getting and displaying the overlapping courses
 @Component({

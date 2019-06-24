@@ -7,3 +7,15 @@ export interface IPlan {
     // course list
     courseList: string[]
 }
+
+export interface Course {
+    subject: string
+    catalog: string
+    crse_id: number
+    acad_prog: string
+    acad_plan: string
+    plan_descr: string
+    acad_sub_plan: string
+    req_descr: string
+    requirement: string
+}
