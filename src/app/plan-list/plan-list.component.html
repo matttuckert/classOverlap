@@ -1,7 +1,0 @@
-<mat-form-field class="custom-width-long">
-  <mat-label>Select a plan</mat-label>
-  <mat-select [(value)]="selectedPlan">
-    <mat-option>None</mat-option>
-    <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.shortName }}</mat-option>
-  </mat-select>
-</mat-form-field>

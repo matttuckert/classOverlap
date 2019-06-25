@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-Built with Angular 7, Angular Material, Bootstrap 4 and Typescript 3.
+Built with Angular 7, Angular Material, and Typescript 3.
 Clone this repo and follow the steps below to get started with Angular 7 Web Application Development.
 
 ClassOverlap takes academic plans at NCSU and tells you the courses that are in each plan

@@ -1,0 +1,23 @@
+<form #f="ngForm" (ngSubmit)="save()">
+  <h1 mat-dialog-title>Select Plans</h1>
+  <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Select a plan</mat-label>
+        <mat-select name="s1" class="form-control" [(ngModel)]="selection1" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.shortName }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Select a plan</mat-label>
+        <mat-select name="s2" class="form-control" [(ngModel)]="selection2" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.shortName }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button type="submit" mat-button [style.backgroundColor]="'lightgreen'" [disabled]="!f.valid"><strong>Save</strong></button>
+    <button mat-dialog-close mat-button [style.backgroundColor]="'pink'"><strong>Cancel</strong></button>
+  </div>
+</form>

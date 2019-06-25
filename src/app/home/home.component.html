@@ -1,24 +1,11 @@
-<mat-grid-list cols="8" rowHeight="100px">
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <app-plan-list></app-plan-list>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <app-plan-list></app-plan-list>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <app-plan-list></app-plan-list>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <app-plan-list></app-plan-list>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <button mat-button class="custom-width" [style.backgroundColor]="'yellow'" (click)="clear()"><strong>Clear</strong></button>
-    <button mat-button class="custom-width" [style.backgroundColor]="'lightgreen'" (click)="run()"><strong>Run</strong></button>
+<mat-grid-list cols="6" rowHeight="100px">
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+      <button mat-button [style.backgroundColor]="'grey'" (click)="openDialog()"><strong>Select Plans</strong></button>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="3" [rowspan]="4">
     <img width=300 alt="Struttin-Wolf" src="assets/img/Struttin-Wolf.jpg">
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="5" [rowspan]="3" [style.backgroundColor]="'lightgrey'">
-    <app-overlaps [hidden]="hidden"></app-overlaps>
+  <mat-grid-tile [colspan]="3" [rowspan]="3" [style.backgroundColor]="'lightgrey'">
+    <app-overlaps></app-overlaps>
   </mat-grid-tile>
 </mat-grid-list>
