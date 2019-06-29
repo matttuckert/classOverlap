@@ -2,16 +2,27 @@
     {
         "shortName": "CSC-M",
         "longName": "Computer Science Major",
-        "courseList": ["CSC116", "CSC216", "CSC316"]
+        "courseList": ["CSC116",
+            "CSC216",
+            "CSC316"
+        ]
     },
     {
         "shortName": "CSC-m",
         "longName": "Computer Science Minor",
-        "courseList": ["CSC116", "CSC216"]
+        "courseList": [
+            "CSC116",
+            "CSC216"
+        ]
     },
     {
         "shortName": "CSC-M-gameDev",
         "longName": "Computer Science Major with game development concentration",
-        "courseList": ["CSC116", "CSC216", "CSC316", "CSC500"]
+        "courseList": [
+            "CSC116",
+            "CSC216",
+            "CSC316",
+            "CSC500"
+        ]
     }
 ]

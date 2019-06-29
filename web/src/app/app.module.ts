@@ -1,11 +1,13 @@
 // top level module - no sub-modules, this module contains all components
+import 'hammerjs';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatSelectModule, MatGridListModule, MatToolbarModule, MatListModule, MatCardModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule, MatSelectModule, MatGridListModule, MatToolbarModule, MatListModule, MatCardModule, MatDialogModule, MatTableModule, MatPaginatorModule, MatInputModule, MatSortModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { SelectionComponent } from './selection/selection.component';
 import { OverlapsComponent } from './overlaps/overlaps.component';
@@ -38,6 +40,10 @@ import { AppService } from './app.service';
     MatListModule,
     MatCardModule,
     MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSortModule,
     ReactiveFormsModule
   ],
   // services

@@ -19,3 +19,9 @@ export interface Course {
     req_descr: string
     requirement: string
 }
+
+export interface TableData {
+    selection1req: string;
+    selection2req: string;
+    course: string;
+  }
