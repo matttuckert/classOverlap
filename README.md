@@ -27,7 +27,7 @@ ClassOverlap takes academic plans at NCSU and tells you the courses that are in 
 
 ### Starting the Application:
 
-* Now that all the dependencies have been downloaded and live in the "node_modules" directory, and we have our credentials file(s), the application can be started.
+* Now that all the dependencies have been downloaded and live in the "node_modules" directory, and we have our credentials file(s), the application can be started in the web folder.
 
 ```
 > npm start
