@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatSelectModule, MatGridListModule, MatToolbarModule, MatListModule, MatCardModule, MatDialogModule, MatTableModule, MatPaginatorModule, MatInputModule, MatSortModule } from '@angular/material';
+import { MatButtonModule, MatSelectModule, MatToolbarModule, MatListModule, MatCardModule, MatDialogModule, MatTableModule, MatPaginatorModule, MatInputModule, MatSortModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { SelectionComponent } from './selection/selection.component';
 import { OverlapsComponent } from './overlaps/overlaps.component';
@@ -35,7 +35,6 @@ import { AppService } from './app.service';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSelectModule,
-    MatGridListModule,
     MatToolbarModule,
     MatListModule,
     MatCardModule,

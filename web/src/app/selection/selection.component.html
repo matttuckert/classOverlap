@@ -5,7 +5,7 @@
         <mat-label>Select a plan</mat-label>
         <mat-select name="s1" class="form-control" [(ngModel)]="selection1" required>
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.shortName }}</mat-option>
+          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>

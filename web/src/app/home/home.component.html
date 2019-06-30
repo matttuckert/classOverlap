@@ -1,11 +1,8 @@
-<mat-grid-list cols="6" rowHeight="100px">
-  <mat-grid-tile [colspan]="3" [rowspan]="1">
-      <button mat-button [style.backgroundColor]="'grey'" (click)="openDialog()"><strong>Select Plans</strong></button>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="3" [rowspan]="4">
-    <img width=300 alt="Struttin-Wolf" src="assets/img/Struttin-Wolf.jpg">
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="3" [rowspan]="4">
+<mat-card>
+  <mat-card-header>
+    <button mat-raised-button [style.backgroundColor]="'#DCDCDC'" (click)="openDialog()"><strong>Select Plans</strong></button>
+  </mat-card-header>
+  <mat-card-content>
     <app-overlaps></app-overlaps>
-  </mat-grid-tile>
-</mat-grid-list>
+  </mat-card-content>
+</mat-card>

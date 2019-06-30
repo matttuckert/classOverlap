@@ -19,7 +19,7 @@
         "shortName": "CSC-M-gameDev",
         "longName": "Computer Science Major with game development concentration",
         "courseList": [
-            "CSC116",
+            { "name": "CSC116", "requirement": "requiredCourse" },
             "CSC216",
             "CSC316",
             "CSC500"

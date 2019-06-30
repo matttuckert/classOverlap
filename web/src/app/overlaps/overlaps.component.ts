@@ -1,8 +1,14 @@
 // component responsible for getting and displaying the overlapping courses
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IPlan, TableData } from '../../model/plan';
+import { IPlan } from '../../model/plan';
 import { AppService } from '../app.service';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+
+export interface TableData {
+  course: string;
+  selection1req: string;
+  selection2req: string;
+}
 
 @Component({
   selector: 'app-overlaps',
@@ -32,7 +38,7 @@ export class OverlapsComponent implements OnInit {
       this.selection2 = data[1];
       this.getOverlaps()
     });
-    setTimeout(() => this.dataSource.paginator = this.paginator);
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
   
@@ -55,7 +61,7 @@ export class OverlapsComponent implements OnInit {
           course: c})
       }
     }
-    this.dataSource = new MatTableDataSource(overlaps);
+    this.dataSource.data = overlaps;
   }
 
 }

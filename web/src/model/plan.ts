@@ -9,19 +9,6 @@ export interface IPlan {
 }
 
 export interface Course {
-    subject: string
-    catalog: string
-    crse_id: number
-    acad_prog: string
-    acad_plan: string
-    plan_descr: string
-    acad_sub_plan: string
-    req_descr: string
+    name: string
     requirement: string
 }
-
-export interface TableData {
-    selection1req: string;
-    selection2req: string;
-    course: string;
-  }
