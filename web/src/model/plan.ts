@@ -5,7 +5,7 @@ export interface IPlan {
     // long name
     longName: string
     // course list
-    courseList: string[]
+    courseList: Course[]
 }
 
 export interface Course {

@@ -17,8 +17,10 @@ export interface TableData {
 })
 export class OverlapsComponent implements OnInit {
 
+  isSaved: boolean = false;
   selection1: IPlan;
   selection2: IPlan;
+  columnHeaders = ["", "", ""];
   displayedColumns: string[] = ['course', 'selection1req', 'selection2req'];
   dataSource: MatTableDataSource<TableData>;
 
@@ -27,8 +29,8 @@ export class OverlapsComponent implements OnInit {
 
   // constructs the overlaps component, injects the app service
   constructor(private service: AppService) {
-      // Assign the data to the data source for the table to render
-      this.dataSource = new MatTableDataSource();
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource();
   }
 
   // initialization logic, subscribes to the onSaved variable
@@ -36,7 +38,10 @@ export class OverlapsComponent implements OnInit {
     this.service.onSaved.subscribe(data => {
       this.selection1 = data[0];
       this.selection2 = data[1];
-      this.getOverlaps()
+      this.columnHeaders[0] = "Course"
+      this.columnHeaders[1] = this.selection1.longName + "Requirement";
+      this.columnHeaders[2] = this.selection2.longName + "Requirement";
+      this.getOverlaps();
     });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -54,11 +59,13 @@ export class OverlapsComponent implements OnInit {
   getOverlaps() {
     let overlaps: TableData[] = [];
     for (let c of this.selection1.courseList) {
-      if (this.selection2.courseList.includes(c)) {
-        overlaps.push({
-          selection1req: "selection1req",
-          selection2req: "selection2req",
-          course: c})
+      for (let co of this.selection2.courseList) {
+        if (c.name == co.name) {
+          overlaps.push({
+            selection1req: c.requirement,
+            selection2req: co.requirement,
+            course: c.name})
+        }
       }
     }
     this.dataSource.data = overlaps;

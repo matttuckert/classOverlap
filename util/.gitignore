@@ -1,6 +1,8 @@
 /.metadata/
 /.recommenders/
-/.scrape/.settings/
-/.scrape/bin/
-/.scrape/.classpath
-/.scrape/.project
+/RemoteSystemsTempFiles/
+/Scrape/crape/.settings/
+/Scrape/bin/
+/Scrape/.classpath
+/Scrape/.project
+/Scrape/.settings

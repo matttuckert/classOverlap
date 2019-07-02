@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppService {
   
   // url - currently pointing to mock data
-  private url: string = "assets/plans.json";
+  private url: string = "assets/testPlans.json";
   // notifies subscribers whenever the selected plans are changed
   onSaved: Subject<IPlan[]> = new Subject<IPlan[]>();
 

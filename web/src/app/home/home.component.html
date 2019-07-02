@@ -3,6 +3,11 @@
     <button mat-raised-button [style.backgroundColor]="'#DCDCDC'" (click)="openDialog()"><strong>Select Plans</strong></button>
   </mat-card-header>
   <mat-card-content>
-    <app-overlaps></app-overlaps>
+    <app-overlaps [hidden]="!onSaved"></app-overlaps>
+    <div [hidden]="onSaved">
+      <h1>Welcome to Class Overlap!</h1>
+      <h3>Click "Select Plans" to Begin</h3>
+      <img width="25%" src="assets/img/Struttin-Wolf.jpg" alt="Struttin-Wolf">
+    </div>
   </mat-card-content>
 </mat-card>
