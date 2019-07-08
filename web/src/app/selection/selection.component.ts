@@ -44,6 +44,7 @@ export class SelectionComponent implements OnInit {
   save() {
     this.dialogRef.close();
     this.service.onSaved.next([this.selection1, this.selection2, this.selection3, this.selection4]);
+    
   }
 
   // adds a field for additional plan

@@ -32,7 +32,7 @@
   </div>
   <div mat-dialog-actions>
     <button type="button" (click) = "add()" mat-button [style.backgroundColor]="'lightblue'"><strong>Add</strong></button>
-    <button type="submit" mat-button [style.backgroundColor]="'lightgreen'" [disabled]="!f.valid"><strong>Save</strong></button>
+    <button routerLink="overlaps" type="submit" mat-button [style.backgroundColor]="'lightgreen'" [disabled]="!f.valid"><strong>Save</strong></button>
     <button mat-dialog-close mat-button [style.backgroundColor]="'pink'"><strong>Cancel</strong></button>
   </div>
 </form>

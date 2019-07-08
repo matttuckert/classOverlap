@@ -2,7 +2,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IPlan } from '../../model/plan';
 import { AppService } from '../app.service';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { SelectionComponent } from '../selection/selection.component';
 
 export interface TableData {
   course: string;
@@ -28,7 +29,7 @@ export class OverlapsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   // constructs the overlaps component, injects the app service
-  constructor(private service: AppService) {
+  constructor(private service: AppService, public dialog: MatDialog) {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
   }
@@ -39,8 +40,8 @@ export class OverlapsComponent implements OnInit {
       this.selection1 = data[0];
       this.selection2 = data[1];
       this.columnHeaders[0] = "Course"
-      this.columnHeaders[1] = this.selection1.longName + "Requirement";
-      this.columnHeaders[2] = this.selection2.longName + "Requirement";
+      this.columnHeaders[1] = this.selection1.longName + " Requirement";
+      this.columnHeaders[2] = this.selection2.longName + " Requirement";
       this.getOverlaps();
     });
     this.dataSource.paginator = this.paginator;
@@ -60,15 +61,23 @@ export class OverlapsComponent implements OnInit {
     let overlaps: TableData[] = [];
     for (let c of this.selection1.courseList) {
       for (let co of this.selection2.courseList) {
-        if (c.name == co.name) {
+        if (c.name == co.name && c.requirement != co.requirement) {
           overlaps.push({
             selection1req: c.requirement,
             selection2req: co.requirement,
-            course: c.name})
+            course: c.name
+          });
         }
       }
     }
     this.dataSource.data = overlaps;
   }
+
+    // opens the dialog when user clicks "Select Plans"
+    openDialog(): void {
+      this.dialog.open(SelectionComponent, {
+        disableClose: true
+      });
+    }
 
 }

@@ -13,7 +13,6 @@ import { SelectionComponent } from './selection/selection.component';
 import { OverlapsComponent } from './overlaps/overlaps.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { AppService } from './app.service';
 
 @NgModule({
   // component declarations
@@ -46,7 +45,7 @@ import { AppService } from './app.service';
     ReactiveFormsModule
   ],
   // services
-  providers: [AppService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
