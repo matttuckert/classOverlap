@@ -76,7 +76,8 @@ export class OverlapsComponent implements OnInit {
     // opens the dialog when user clicks "Select Plans"
     openDialog(): void {
       this.dialog.open(SelectionComponent, {
-        disableClose: true
+        disableClose: true,
+        width: "600px"
       });
     }
 

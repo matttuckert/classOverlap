@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
 export class AppService {
   
   // url - currently pointing to mock data
-  private url: string = "assets/testPlans.json";
+  private url: string = "assets/plans.json";
   // notifies subscribers whenever the selected plans are changed
   onSaved: Subject<IPlan[]> = new Subject<IPlan[]>();
 

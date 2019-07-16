@@ -1,34 +1,34 @@
 <form #f="ngForm" (ngSubmit)="save()">
   <h1 mat-dialog-title>Select Plans</h1>
   <div mat-dialog-content>
-      <mat-form-field>
-        <mat-label>Select a plan</mat-label>
-        <mat-select name="s1" class="form-control" [(ngModel)]="selection1" required>
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Select a plan</mat-label>
-        <mat-select name="s2" class="form-control" [(ngModel)]="selection2" required>
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field *ngIf="selection3Visible">
-        <mat-label>Select a plan</mat-label>
-        <mat-select name="s3" class="form-control" [(ngModel)]="selection3">
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
-        </mat-select>
-      </mat-form-field> 
-      <mat-form-field *ngIf = "selection4Visible">
-        <mat-label>Select a plan</mat-label>
-        <mat-select name="s4" class="form-control" [(ngModel)]="selection4" required>
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
-        </mat-select>
-      </mat-form-field>     
+    <mat-form-field>
+      <mat-label>Select a plan</mat-label>
+      <mat-select name="s1" class="form-control" [(ngModel)]="selection1" required>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select a plan</mat-label>
+      <mat-select name="s2" class="form-control" [(ngModel)]="selection2" required>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="selection3Visible">
+      <mat-label>Select a plan</mat-label>
+      <mat-select name="s3" class="form-control" [(ngModel)]="selection3">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
+      </mat-select>
+    </mat-form-field> 
+    <mat-form-field *ngIf = "selection4Visible">
+      <mat-label>Select a plan</mat-label>
+      <mat-select name="s4" class="form-control" [(ngModel)]="selection4" required>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
+      </mat-select>
+    </mat-form-field>     
   </div>
   <div mat-dialog-actions>
     <button type="button" (click) = "add()" mat-button [style.backgroundColor]="'lightblue'"><strong>Add</strong></button>
