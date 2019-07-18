@@ -17,7 +17,7 @@
     </mat-form-field>
     <mat-form-field *ngIf="selection3Visible">
       <mat-label>Select a plan</mat-label>
-      <mat-select name="s3" class="form-control" [(ngModel)]="selection3">
+      <mat-select name="s3" class="form-control" [(ngModel)]="selection3" required>
         <mat-option>None</mat-option>
         <mat-option *ngFor="let plan of plans" [value]="plan">{{ plan.longName }}</mat-option>
       </mat-select>
@@ -32,7 +32,7 @@
   </div>
   <div mat-dialog-actions>
     <button type="button" (click) = "add()" mat-button [style.backgroundColor]="'lightblue'"><strong>Add</strong></button>
-    <button routerLink="overlaps" type="submit" mat-button [style.backgroundColor]="'lightgreen'" [disabled]="!f.valid"><strong>Save</strong></button>
-    <button mat-dialog-close mat-button [style.backgroundColor]="'pink'"><strong>Cancel</strong></button>
+    <button routerLink="overlaps" type="submit" mat-button [style.backgroundColor]="'lightgreen'" [disabled]="!f.valid" (click) = "reset()"><strong>Save</strong></button>
+    <button (click) = "reset()" mat-dialog-close mat-button [style.backgroundColor]="'pink'"><strong>Cancel</strong></button>
   </div>
 </form>

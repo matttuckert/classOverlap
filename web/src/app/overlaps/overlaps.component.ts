@@ -21,9 +21,12 @@ export class OverlapsComponent implements OnInit {
   isSaved: boolean = false;
   selection1: IPlan;
   selection2: IPlan;
+  selection3: IPlan;
+  selection4: IPlan;
   columnHeaders = ["", "", ""];
   displayedColumns: string[] = ['course', 'selection1req', 'selection2req'];
   dataSource: MatTableDataSource<TableData>;
+  selectionCount: number;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -58,6 +61,7 @@ export class OverlapsComponent implements OnInit {
 
   // gets overlapping courses of the plan list passed as a parameter
   getOverlaps() {
+    this.selectionCount = this.service.getSelectionCount();
     let overlaps: TableData[] = [];
     for (let c of this.selection1.courseList) {
       for (let co of this.selection2.courseList) {

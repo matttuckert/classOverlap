@@ -27,6 +27,18 @@
       <td mat-cell *matCellDef="let row"> {{row.selection2req}} </td>
     </ng-container>
 
+    <!-- Selection 3 requirement column -->
+    <ng-container matColumnDef="selection2req" *ngIf="selection3Visible"> 
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{columnHeaders[3]}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.selection2req}} </td>
+    </ng-container>
+
+    <!-- Selection 4 requirement column -->
+    <ng-container matColumnDef="selection2req" *ngIf="selection4Visible">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{columnHeaders[4]}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.selection2req}} </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;">
     </tr>

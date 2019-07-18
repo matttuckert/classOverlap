@@ -26,7 +26,7 @@ export class SelectionComponent implements OnInit {
   // hide or reveal selection 4
   selection4Visible: boolean = false;
   //keep track of number of selections
-  selectionCount: number = 2;
+  selectionCount: number;
 
   // constructs a plan list component
   // injects the MatDialogRef service
@@ -49,12 +49,19 @@ export class SelectionComponent implements OnInit {
 
   // adds a field for additional plan
   add() {
+    this.selectionCount = this.service.getSelectionCount();
     if (this.selectionCount == 2) {
       this.selection3Visible = !this.selection3Visible;
+      this.service.incrementSelection();
     } else if (this.selectionCount == 3) {
       this.selection4Visible = !this.selection4Visible;
+      this.service.incrementSelection();
     }
     this.selectionCount++;
+  }
+
+  reset() {
+    this.service.resetSelection();
   }
 
 }
