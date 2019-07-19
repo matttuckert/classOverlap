@@ -23,7 +23,7 @@ export class OverlapsComponent implements OnInit {
   selection2: IPlan;
   selection3: IPlan;
   selection4: IPlan;
-  columnHeaders = ["", "", ""];
+  columnHeaders: string[];
   displayedColumns: string[] = ['course', 'selection1req', 'selection2req'];
   dataSource: MatTableDataSource<TableData>;
   selectionCount: number;
@@ -34,7 +34,12 @@ export class OverlapsComponent implements OnInit {
   // constructs the overlaps component, injects the app service
   constructor(private service: AppService, public dialog: MatDialog) {
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource();
+    this.dataSource = new MatTableDataSource<TableData>();
+    let temp = JSON.parse(sessionStorage.getItem("data"));
+    if (temp) {
+      this.dataSource.data = temp;
+    }
+    this.columnHeaders = JSON.parse(sessionStorage.getItem("headers")) || this.getColumnHeaders();
   }
 
   // initialization logic, subscribes to the onSaved variable
@@ -42,10 +47,10 @@ export class OverlapsComponent implements OnInit {
     this.service.onSaved.subscribe(data => {
       this.selection1 = data[0];
       this.selection2 = data[1];
-      this.columnHeaders[0] = "Course"
-      this.columnHeaders[1] = this.selection1.longName + " Requirement";
-      this.columnHeaders[2] = this.selection2.longName + " Requirement";
-      this.getOverlaps();
+      this.columnHeaders = this.getColumnHeaders();
+      this.dataSource.data = this.getOverlaps();
+      sessionStorage.setItem("headers", JSON.stringify(this.columnHeaders));
+      sessionStorage.setItem("data", JSON.stringify(this.dataSource.data));
     });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -53,14 +58,13 @@ export class OverlapsComponent implements OnInit {
   
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
 
   // gets overlapping courses of the plan list passed as a parameter
-  getOverlaps() {
+  getOverlaps(): TableData[] {
     this.selectionCount = this.service.getSelectionCount();
     let overlaps: TableData[] = [];
     for (let c of this.selection1.courseList) {
@@ -74,15 +78,23 @@ export class OverlapsComponent implements OnInit {
         }
       }
     }
-    this.dataSource.data = overlaps;
+    return overlaps;
   }
 
-    // opens the dialog when user clicks "Select Plans"
-    openDialog(): void {
-      this.dialog.open(SelectionComponent, {
-        disableClose: true,
-        width: "600px"
-      });
-    }
+  // opens the dialog when user clicks "Select Plans"
+  openDialog(): void {
+    this.dialog.open(SelectionComponent, {
+      disableClose: true,
+      width: "600px"
+    });
+  }
+
+  getColumnHeaders(): string[] {
+    return [
+      "Course",
+      this.selection1? this.selection1.longName + " Requirement" : "", 
+      this.selection2? this.selection2.longName + " Requirement" : ""
+    ];
+  }
 
 }

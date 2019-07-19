@@ -173,6 +173,8 @@ public class Scrape {
 	}
 
 	// converts an array of java plan objects to JSON format
+	// outputs to testPlans.json
+	// confirm output is correct before overwriting plans.json
 	private static void convertToJSON(ArrayList<Plan> objects) throws IOException {
 		BufferedWriter out = null;
 		try {
