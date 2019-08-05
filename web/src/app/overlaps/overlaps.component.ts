@@ -46,11 +46,7 @@ export class OverlapsComponent implements OnInit {
   // initialization logic, subscribes to the onSaved variable
   ngOnInit() {
     this.service.selectionCount.subscribe(data => this.selectionCount = data);
-    if (this.selectionCount == 3) {
-      this.columnsToDisplay.push('selection3req');
-    } else if (this.selectionCount == 4) {
-      this.columnsToDisplay.push('selection3req', 'selection4req');
-    }
+    this.service.columns.subscribe(data => this.displayedColumns = data);
     this.service.onSaved.subscribe(data => {
       this.selection1 = data[0];
       this.selection2 = data[1];
@@ -105,6 +101,12 @@ export class OverlapsComponent implements OnInit {
       this.selection3? this.selection3.longName + " Requirement" : "",
       this.selection4? this.selection4.longName + " Requirement" : ""
     ];
+  }
+
+  reset() {
+    this.service.resetSelection();
+    this.service.displayedColumns = ['course', 'selection1req', 'selection2req'];
+    this.service.columns.next(this.displayedColumns);
   }
 
 }
