@@ -1,5 +1,5 @@
 
-<button mat-raised-button [style.backgroundColor]="'#DCDCDC'" (click)="openDialog()"><strong>Select New Plans</strong></button>
+<button mat-raised-button [style.backgroundColor]="'#DCDCDC'" (click)="[openDialog(), reset()]"><strong>Select New Plans</strong></button>
 
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">

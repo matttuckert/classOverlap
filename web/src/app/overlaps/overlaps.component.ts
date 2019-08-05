@@ -25,6 +25,7 @@ export class OverlapsComponent implements OnInit {
   selection4: IPlan;
   columnHeaders: string[];
   displayedColumns: string[] = ['course', 'selection1req', 'selection2req'];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource: MatTableDataSource<TableData>;
   selectionCount: number;
 
@@ -44,9 +45,13 @@ export class OverlapsComponent implements OnInit {
 
   // initialization logic, subscribes to the onSaved variable
   ngOnInit() {
+    this.service.selectionCount.subscribe(data => this.selectionCount = data);
+    this.service.columns.subscribe(data => this.displayedColumns = data);
     this.service.onSaved.subscribe(data => {
       this.selection1 = data[0];
       this.selection2 = data[1];
+      this.selection3 = data[2];
+      this.selection4 = data[3];
       this.columnHeaders = this.getColumnHeaders();
       this.dataSource.data = this.getOverlaps();
       sessionStorage.setItem("headers", JSON.stringify(this.columnHeaders));
@@ -65,7 +70,6 @@ export class OverlapsComponent implements OnInit {
 
   // gets overlapping courses of the plan list passed as a parameter
   getOverlaps(): TableData[] {
-    this.selectionCount = this.service.getSelectionCount();
     let overlaps: TableData[] = [];
     for (let c of this.selection1.courseList) {
       for (let co of this.selection2.courseList) {
@@ -93,8 +97,16 @@ export class OverlapsComponent implements OnInit {
     return [
       "Course",
       this.selection1? this.selection1.longName + " Requirement" : "", 
-      this.selection2? this.selection2.longName + " Requirement" : ""
+      this.selection2? this.selection2.longName + " Requirement" : "",
+      this.selection3? this.selection3.longName + " Requirement" : "",
+      this.selection4? this.selection4.longName + " Requirement" : ""
     ];
+  }
+
+  reset() {
+    this.service.resetSelection();
+    this.service.displayedColumns = ['course', 'selection1req', 'selection2req'];
+    this.service.columns.next(this.displayedColumns);
   }
 
 }
