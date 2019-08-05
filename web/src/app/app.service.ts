@@ -12,28 +12,30 @@ export class AppService {
   
   // url - currently pointing to mock data
   private url: string = "assets/plans.json";
+
+  counter: number = 2;
   // notifies subscribers whenever the selected plans are changed
   onSaved: Subject<IPlan[]> = new Subject<IPlan[]>();
 
-  private selectionCount: number = 2;
+  
+  selectionCount: BehaviorSubject<number>;
 
-  constructor(private http: HttpClient, public dialog: MatDialog) { }
+  constructor(private http: HttpClient, public dialog: MatDialog) { 
+    this.selectionCount = new BehaviorSubject(this.counter);
+  }
 
   // gets the plans at specified url
   getPlans() {
     return this.http.get<IPlan[]>(this.url)
   }
 
-  getSelectionCount() {
-    return this.selectionCount;
-  }
-
   incrementSelection() {
-    this.selectionCount = this.selectionCount + 1;
+    this.selectionCount.next(++this.counter);
   }
 
   resetSelection() {
-    this.selectionCount = 2;
+    this.counter = 2;
+    this.selectionCount.next(2);
   }
   
 }

@@ -37,6 +37,7 @@ export class SelectionComponent implements OnInit {
   // gets plans
   ngOnInit() { 
     this.service.getPlans().subscribe(data => this.plans = data);
+    this.service.selectionCount.subscribe(count => this.selectionCount = count);
   }
 
   // closes the dialog and sends data to onSaved variable which updates all subscribers
@@ -49,7 +50,6 @@ export class SelectionComponent implements OnInit {
 
   // adds a field for additional plan
   add() {
-    this.selectionCount = this.service.getSelectionCount();
     if (this.selectionCount == 2) {
       this.selection3Visible = !this.selection3Visible;
       this.service.incrementSelection();
@@ -57,7 +57,6 @@ export class SelectionComponent implements OnInit {
       this.selection4Visible = !this.selection4Visible;
       this.service.incrementSelection();
     }
-    this.selectionCount++;
   }
 
   reset() {
