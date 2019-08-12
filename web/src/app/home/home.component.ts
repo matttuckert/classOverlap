@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectionComponent } from '../selection/selection.component';
 import { MatDialog } from '@angular/material';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   title: string = 'Class Overlap';
 
   // constructs the home component, no values to initialize
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public service: AppService) { }
 
   // initialization logic for home component, set view to display
   ngOnInit() {
@@ -27,5 +28,8 @@ export class HomeComponent implements OnInit {
       disableClose: true,
       width: "600px"
     });
+  }
+  reset() {
+    this.service.resetAll();
   }
 }

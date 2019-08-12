@@ -45,5 +45,11 @@ export class AppService {
     this.counter = 2;
     this.selectionCount.next(2);
   }
+
+  resetAll() {
+    this.resetSelection();
+    this.displayedColumns = ['course', 'selection1req', 'selection2req'];
+    this.columns.next(this.displayedColumns);
+  }
   
 }

@@ -9,6 +9,8 @@ export interface TableData {
   course: string;
   selection1req: string;
   selection2req: string;
+  selection3req: string;
+  selection4req: string;
 }
 
 @Component({
@@ -71,14 +73,52 @@ export class OverlapsComponent implements OnInit {
   // gets overlapping courses of the plan list passed as a parameter
   getOverlaps(): TableData[] {
     let overlaps: TableData[] = [];
-    for (let c of this.selection1.courseList) {
-      for (let co of this.selection2.courseList) {
-        if (c.name == co.name && c.requirement != co.requirement) {
-          overlaps.push({
-            selection1req: c.requirement,
-            selection2req: co.requirement,
-            course: c.name
-          });
+    if (this.selectionCount == 2) {
+      for (let c of this.selection1.courseList) {
+        for (let co of this.selection2.courseList) {
+          if (c.name == co.name && c.requirement != co.requirement) {
+            overlaps.push({
+              selection1req: c.requirement,
+              selection2req: co.requirement,
+              selection3req: null,
+              selection4req: null,
+              course: c.name
+            });
+          }
+        }
+      }
+    } else if (this.selectionCount == 3) {
+      for (let c of this.selection1.courseList) {
+        for (let co of this.selection2.courseList) {
+          for (let cor of this.selection3.courseList) {
+            if (c.name == co.name && c.name == cor.name) {
+              overlaps.push({
+                selection1req: c.requirement,
+                selection2req: co.requirement,
+                selection3req: cor.requirement,
+                selection4req: null,
+                course: c.name
+              });
+            }
+          }
+        }
+      }
+    } else if (this.selectionCount == 4) {
+      for (let c of this.selection1.courseList) {
+        for (let co of this.selection2.courseList) {
+          for (let cor of this.selection3.courseList) {
+            for (let cors of this.selection4.courseList) {
+              if (c.name == co.name && c.name == cor.name && c.name == cors.name) {
+                overlaps.push({
+                  selection1req: c.requirement,
+                  selection2req: co.requirement,
+                  selection3req: cor.requirement,
+                  selection4req: cors.requirement,
+                  course: c.name
+                });
+              }
+            }
+          }
         }
       }
     }
@@ -104,9 +144,7 @@ export class OverlapsComponent implements OnInit {
   }
 
   reset() {
-    this.service.resetSelection();
-    this.service.displayedColumns = ['course', 'selection1req', 'selection2req'];
-    this.service.columns.next(this.displayedColumns);
+    this.service.resetAll();
   }
 
 }

@@ -2,7 +2,7 @@
 
 <mat-toolbar [style.backgroundColor]="'#CC0000'">
   <mat-toolbar-row>
-    <button [style.color]="'white'" routerLink="home" mat-button><strong>Home</strong></button>
+    <button [style.color]="'white'" routerLink="home" (click)="reset()"mat-button><strong>Home</strong></button>
     <button [style.color]="'white'" routerLink="about" mat-button><strong>About</strong></button>
   </mat-toolbar-row>
 </mat-toolbar>
