@@ -19,7 +19,7 @@ ClassOverlap takes academic plans at NCSU and tells you the courses that are in 
 ```
 > git clone https://github.com/matttuckert/classOverlap.git
 ```
-* Run the initial install of the required node modules, defined in the package.json file.  This may take about 5 minutes
+* Run the initial install of the required node modules in web folder, defined in the package.json file.  This may take about 5 minutes
 
 ```
 > npm i
